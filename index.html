@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
     <link rel="stylesheet" href="stylesheets/screen.css">
-
-
-
     <!--    <link rel="stylesheet" href="stylesheets/component.css">-->
     <!--    <script src="javascripts/modernizr.custom.js"></script>-->
 
@@ -118,16 +115,15 @@
     <script>
         $(document).ready(function () {
 
-            var itemselector = $('#contents a.list-group-item');
-
+            var itemselector = $('#contents a');
+            
             itemselector.on('click', function () {
-                if ($(this).hasClass('active')) {
-                    return;
-                    console.log(this);
+                var $this = $(this);
+                if ($this.hasClass('active')) {
+                   return;
                 } else {
-                    console.log(this);
-                    itemselector.find('.list-group-item.active').removeClass('active');
-                    $(this).addClass('active');
+                    $('a.active').removeClass('active'); // remove class of the active anchor tag
+                    $this.addClass('active'); // aad active class to clicked one
                 }
             }); // clicking on the contents
 
